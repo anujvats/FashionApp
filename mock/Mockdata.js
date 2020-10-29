@@ -61,6 +61,12 @@ export const WelcomeAsset = {
   width: 3383,
 }
 
+const DesignAsset = [
+  require("../assets/pattern1.png")
+]
+
+
+
 export const fonts = {
   "SFProdisplay-Regular" :require("../assets/fonts/SF-Pro-Display-Regular.otf"),
   "SFProdisplay-Bold" : require("../assets/fonts/SF-Pro-Display-Bold.otf"),
@@ -70,4 +76,4 @@ export const fonts = {
 
 const slideSource = slidesData.map((slide) => slide.picture.src)
 
-export const imageAssets = [ ...slideSource, WelcomeAsset.src]
+export const imageAssets = [ ...slideSource, WelcomeAsset.src, DesignAsset]

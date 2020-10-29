@@ -17,6 +17,7 @@ import { WelcomeScreen } from "./components/authentication/onbording/Welcome"
 import { LoginScreen } from "./components/authentication/login/LoginScreen"
 import { SignUpScreen } from "./components/authentication/signup/SignUpScreen"
 import { ForgotPasswordScreen } from "./components/authentication/forgotPassword/ForgotPasswordScreen"
+import { PasswordChangeScreen } from './components/authentication/forgotPassword/ChangePasswordScreen';
 
 const AuthenticationStack = createStackNavigator();
 
@@ -42,6 +43,10 @@ const AuthenticationNavigator = () => {
       <AuthenticationStack.Screen 
       name = "ForgotPasswordScreen" 
       component = {ForgotPasswordScreen} />
+
+      <AuthenticationStack.Screen 
+      name = "PasswordChangeScreen" 
+      component = {PasswordChangeScreen} />
 
     </AuthenticationStack.Navigator>
   );

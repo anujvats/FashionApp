@@ -1,12 +1,11 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import {View, Text, StyleSheet, Alert} from "react-native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Feather as Icon } from '@expo/vector-icons'
 
 import { Container } from "../../Container"
-import { TextField } from "../../TextField"
-import { SocialFooter } from "../SocialFooter"
 
-export const ForgotPasswordScreen = ({navigation}) => {
+export const PasswordChangeScreen = ({navigation}) => {
 
     const emailValidator = (inputText) => {
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -21,34 +20,36 @@ export const ForgotPasswordScreen = ({navigation}) => {
         navigation.navigate("SignUpScreen")
     }
 
-    const navigateToPasswordChange = () => {
-        navigation.navigate('PasswordChangeScreen')
+    const popToSignUp = () => {
+        navigation.pop()
     }
 
-    const footer = (<SocialFooter 
-        navigate= {navigateToSignUp} 
-        buttonTitle1="Don’t have an account?"
-        buttonTitle2="Sign Up here" />)
+    const circleView = 
+    (
+        <View style={{height: 80, width: 80, backgroundColor: "rgba(44,185,176,0.1)" , borderRadius: 40, justifyContent: "center", alignItems:"center"}}>
+            <Icon name= 'check' size={32} color='#2CB9B0'/>
+        </View>
+    )
+
+    const closeButton = 
+    (
+        <View style={{justifyContent: "center", margin: 16, alignItems:"center"}}>
+            <TouchableOpacity style={{height: 60, width: 60, backgroundColor: "white", borderRadius:30, justifyContent: "center", alignItems:"center"}}
+             onPress = {popToSignUp}>
+                <Icon name= 'x' size={32} color='black'/>
+             </TouchableOpacity>
+        </View>
+    )
 
     return(
-        <Container footer={footer}> 
-            <View style={{justifyContent:"center", padding: 40, flex:1}}>
+        <Container footer={closeButton}> 
+            <View style={{padding: 40,justifyContent:"center", alignItems: "center", flex:1}}>
+                    { circleView }
             <View style= {styles.textContainer}>
-                 <Text style={styles.titleStyle}>Forgot password?</Text>
-                 <Text style= {styles.subtitleStyle} > 
-                 Enter the email address associated with your account </Text>
-                  <View style= {{marginBottom: 16}}>
-                        <TextField placeholder= "Enter your email" 
-                               validator= {emailValidator} 
-                               iconName = "mail" 
-                               secureTextEntry= {false}
-                               returnKeyLabel="go"
-                               returnKeyType="go"
-                               onSubmitEditing= {() => { }}
-                                />
-                    </View>
-                <TouchableOpacity style= {styles.buttonStyle} onPress={navigateToPasswordChange}>
-                    <Text style= {styles.buttonText}>Reset password</Text>
+                 <Text style={styles.titleStyle}>Your password was successfully changed</Text>
+                 <Text style= {styles.subtitleStyle} > Close this window and login again </Text>
+                <TouchableOpacity style= {styles.buttonStyle} onPress= {popToSignUp}>
+                    <Text style= {styles.buttonText}>Login Again</Text>
                 </TouchableOpacity>
             </View>
             </View>
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
         margin: 24,
         lineHeight: 33,
         textAlign: "center",
-        fontFamily: "SFProdisplay-Bold",
+        fontFamily: "SFProdisplay-Bold"
     },
     subtitleStyle: {
         fontSize: 16,

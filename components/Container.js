@@ -73,6 +73,9 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 0,
     },
     footer: {
+        // margin: 20,
         backgroundColor: "#0C0D34",
+        // justifyContent: "center",
+        // alignItems: "center"
     }
 })

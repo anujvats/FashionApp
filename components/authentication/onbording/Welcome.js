@@ -30,7 +30,11 @@ export const WelcomeScreen = ({navigation}) => {
                                  navigation.navigate("LoginScreen")
                                      }}/>
                 <RoundButton label= "Join us, it’s Free" variant= "secondary"/>
-                <RoundButton label= "Forgot password?" variant= "transparent"/>
+                <RoundButton label= "Forgot password?" 
+                             variant= "transparent"
+                             onPress = {() => {
+                                navigation.navigate("ForgotPasswordScreen")
+                                    }}/> 
         </View>
        </View>
    </View>)
