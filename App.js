@@ -1,21 +1,79 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
 
-export default function App() {
+import {Asset} from "expo-asset"
+import * as Font from "expo-font"
+
+import { imageAssets, fonts } from "./mock/Mockdata"
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+import { OnboardingScreen } from "./components/authentication/onbording/Onboarding";
+import { WelcomeScreen } from "./components/authentication/onbording/Welcome"
+import { LoginScreen } from "./components/authentication/login/LoginScreen"
+import { SignUpScreen } from "./components/authentication/signup/SignUpScreen"
+import { AppLoading } from "expo";
+import { SafeAreaProvider } from "react-native-safe-area-context"
+
+const AuthenticationStack = createStackNavigator();
+const WelcomeStack = createStackNavigator()
+const Login = createStackNavigator()
+const SignUp = createStackNavigator()
+
+const AuthenticationNavigator = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AuthenticationStack.Navigator headerMode="none">
+      <AuthenticationStack.Screen
+        name="OnBoardingScreen"
+        component={OnboardingScreen}
+      />
+      <WelcomeStack.Screen 
+      name = "WelcomeScreen" 
+      component = {WelcomeScreen} />
+      
+      <Login.Screen 
+      name = "LoginScreen" 
+      component = {LoginScreen} />
+
+      <SignUp.Screen 
+      name = "SignUpScreen" 
+      component = {SignUpScreen} />
+
+
+    </AuthenticationStack.Navigator>
   );
+};
+
+const loadAsset = async () => {
+
+  const imageAsset = imageAssets.map((image) => {
+       Asset.fromModule(image).downloadAsync()
+  })
+
+  const fontAssets = Font.loadAsync(fonts)
+
+  await Promise.all([...imageAsset, fontAssets])
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+
+  const [ready, setReady] = useState(false)
+
+  if(!ready) {
+    return( <AppLoading 
+      startAsync = {loadAsset}
+      onFinish = {() => setReady(true)}
+      onError={console.warn}
+   />)
+  }
+  
+  return (
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <AuthenticationNavigator />
+        <StatusBar style="auto" />
+      </NavigationContainer>
+    </SafeAreaProvider>
+  );
+}
