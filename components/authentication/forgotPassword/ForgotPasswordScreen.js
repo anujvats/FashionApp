@@ -3,81 +3,41 @@ import {View, Text, StyleSheet, Alert} from "react-native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { Container } from "../../Container"
-import {SocialFooter} from "../SocialFooter"
-
 import { TextField } from "../../TextField"
-import { CheckBox } from "../../CheckBox"
 
-const emailValidator = (inputText) => {
-    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return reg.test(inputText)
-}
+export const ForgotPasswordScreen = ({navigation}) => {
 
-const passwordValidator = (inputText) => {
-    return inputText.length >= 6
-}
-
-
-export const LoginScreen = ({navigation}) => {
-
-    const passwordRef = useRef(null)
-
-    const navigateToForgotScreen = () => {
-        navigation.navigate('ForgotPasswordScreen')
+    const emailValidator = (inputText) => {
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        return reg.test(inputText)
     }
 
     const emailSubmit = () => {
-        passwordRef.current.focus()
-    }
-
-    const hanndlePassword = () => {
-        console.log("Hello")
+       console.log('handle submite')
     }
 
     const navigateToSignUp = () => {
         navigation.navigate("SignUpScreen")
     }
 
-    const footer = (<SocialFooter 
-            navigate= {navigateToSignUp} 
-            buttonTitle1="Don’t have an account?"
-            buttonTitle2="Sign Up here" />)
-  
-
     return(
-        <Container footer= {footer}> 
+        <Container> 
             <View style= {styles.textContainer}>
-                 <Text style={styles.titleStyle}>Welcome Back</Text>
+                 <Text style={styles.titleStyle}>Forgot password?</Text>
                  <Text style= {styles.subtitleStyle} > 
-                 Use your credentials below and login to your account </Text>
+                 Enter the email address associated with your account </Text>
                   <View style= {{marginBottom: 16}}>
                         <TextField placeholder= "Enter your email" 
                                validator= {emailValidator} 
                                iconName = "mail" 
                                secureTextEntry= {false}
-                               returnKeyLabel="next"
-                               returnKeyType="next"
-                               onSubmitEditing= {() => { passwordRef.current.focus() }}
-                                />
-                    </View>
-                    <View style= {{marginBottom: 16}}>
-                        <TextField placeholder= "Enter your password" 
-                               validator= {passwordValidator} 
-                               iconName = "lock" 
-                               secureTextEntry= {true}
                                returnKeyLabel="go"
                                returnKeyType="go"
-                               onSubmitEditing= {() => {}}
-                               ref= {passwordRef}/>
+                               onSubmitEditing= {() => { }}
+                                />
                     </View>
-                <View style= {{marginBottom: 40, flexDirection: "row",justifyContent: 'space-between'}}>
-                    <CheckBox />
-                    <TouchableOpacity onPress= {navigateToForgotScreen}>
-                        <Text style={styles.textStyle}> Forgot password </Text>
-                    </TouchableOpacity>
-                </View>
                 <TouchableOpacity style= {styles.buttonStyle}>
-                    <Text style= {styles.buttonText}>Log into your account</Text>
+                    <Text style= {styles.buttonText}>Reset password</Text>
                 </TouchableOpacity>
             </View>
         </Container>

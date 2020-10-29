@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import {Asset} from "expo-asset"
 import * as Font from "expo-font"
 
+import { AppLoading } from "expo";
+import { SafeAreaProvider } from "react-native-safe-area-context"
+
 import { imageAssets, fonts } from "./mock/Mockdata"
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -13,13 +16,9 @@ import { OnboardingScreen } from "./components/authentication/onbording/Onboardi
 import { WelcomeScreen } from "./components/authentication/onbording/Welcome"
 import { LoginScreen } from "./components/authentication/login/LoginScreen"
 import { SignUpScreen } from "./components/authentication/signup/SignUpScreen"
-import { AppLoading } from "expo";
-import { SafeAreaProvider } from "react-native-safe-area-context"
+import { ForgotPasswordScreen } from "./components/authentication/forgotPassword/ForgotPasswordScreen"
 
 const AuthenticationStack = createStackNavigator();
-const WelcomeStack = createStackNavigator()
-const Login = createStackNavigator()
-const SignUp = createStackNavigator()
 
 const AuthenticationNavigator = () => {
   return (
@@ -28,18 +27,21 @@ const AuthenticationNavigator = () => {
         name="OnBoardingScreen"
         component={OnboardingScreen}
       />
-      <WelcomeStack.Screen 
+      <AuthenticationStack.Screen 
       name = "WelcomeScreen" 
       component = {WelcomeScreen} />
       
-      <Login.Screen 
+      <AuthenticationStack.Screen 
       name = "LoginScreen" 
       component = {LoginScreen} />
 
-      <SignUp.Screen 
+      <AuthenticationStack.Screen 
       name = "SignUpScreen" 
       component = {SignUpScreen} />
 
+      <AuthenticationStack.Screen 
+      name = "ForgotPasswordScreen" 
+      component = {ForgotPasswordScreen} />
 
     </AuthenticationStack.Navigator>
   );
