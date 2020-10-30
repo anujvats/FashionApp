@@ -8,11 +8,11 @@ import {
   interpolateColor,
 } from "react-native-redash/lib/module/v1";
 
-import { FooterInfo } from "../../Footerinfo";
+import { FooterInfo } from "../../components/Footerinfo";
 import { slidesData } from "../../../mock/Mockdata";
 
-import { Slider, SLIDER_HEIGHT } from "../../Slide";
-import {Dot} from "../../Dot";
+import { Slider, SLIDER_HEIGHT } from "../../components/Slide";
+import {Dot} from "../../components/Dot";
 
 const { width } = Dimensions.get("window");
 const BORDER_RADIUS = 75;

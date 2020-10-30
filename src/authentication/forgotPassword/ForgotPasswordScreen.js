@@ -2,9 +2,9 @@ import React, { useRef } from 'react';
 import {View, Text, StyleSheet, Alert} from "react-native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import { Container } from "../../Container"
-import { TextField } from "../../TextField"
-import { SocialFooter } from "../SocialFooter"
+import { Container } from "../../components/Container"
+import { TextField } from "../../components/TextField"
+import { SocialFooter } from "../../components/SocialFooter"
 
 export const ForgotPasswordScreen = ({navigation}) => {
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Dimensions, Image, Text } from "react-native";
-import {RoundButton} from "../../Button"
+import {RoundButton} from "../../components/Button";
 
 
 const { width } = Dimensions.get("window");

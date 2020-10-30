@@ -4,14 +4,11 @@ import {View , Image, Dimensions, StyleSheet, Text} from "react-native"
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { DesignAsset } from '../mock/Mockdata'
+import { DesignAsset } from '../../mock/Mockdata'
 
 const {width, height: wHeight } = Dimensions.get("window")
-
 const imaageAspectRatio = 750/1125
-
 const height = width * imaageAspectRatio
-
 const bgpatternHeight = height * 0.61
 
 export const Container = ({footer, children, patternIndex}) => {
@@ -74,9 +71,6 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 0,
     },
     footer: {
-        // margin: 20,
         backgroundColor: "#0C0D34",
-        // justifyContent: "center",
-        // alignItems: "center"
     }
 })

@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, Alert} from "react-native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Feather as Icon } from '@expo/vector-icons'
 
-import { Container } from "../../Container"
+import { Container } from "../../components/Container"
 
 export const PasswordChangeScreen = ({navigation}) => {
 

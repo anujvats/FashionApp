@@ -1,9 +1,9 @@
 import React from "react"
 import { StyleSheet, View, Text } from "react-native"
 
-import {FaceBookSignInIcon} from "../socialIcons/FacebookIcon"
-import {GoogleSignInIcon} from "../socialIcons/GoogleIcon"
-import {AppleSignInIcon} from "../socialIcons/AppleSignIn"
+import {FaceBookSignInIcon} from "./socialIcons/FacebookIcon"
+import {GoogleSignInIcon} from "./socialIcons/GoogleIcon"
+import {AppleSignInIcon} from "./socialIcons/AppleSignIn"
 import { TouchableOpacity } from "react-native-gesture-handler"
 
 export const SocialFooter = (props) => {

@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import {View, Text, StyleSheet} from "react-native";
-import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import { Container } from "../../Container"
-import {SocialFooter} from "../SocialFooter"
+import { Container } from "../../components/Container"
+import {SocialFooter} from "../../components/SocialFooter"
 
-import { TextField } from "../../TextField"
-import {CheckBox} from "../../CheckBox"
+import { TextField } from "../../components/TextField"
+import {CheckBox} from "../../components/CheckBox"
 
 const emailValidator = (inputText) => {
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

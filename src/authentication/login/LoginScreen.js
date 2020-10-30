@@ -2,11 +2,11 @@ import React, { useRef } from 'react';
 import {View, Text, StyleSheet, Alert} from "react-native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import { Container } from "../../Container"
-import {SocialFooter} from "../SocialFooter"
+import { Container } from "../../components/Container"
+import {SocialFooter} from "../../components/SocialFooter"
 
-import { TextField } from "../../TextField"
-import { CheckBox } from "../../CheckBox"
+import { TextField } from "../../components/TextField"
+import { CheckBox } from "../../components/CheckBox"
 
 const emailValidator = (inputText) => {
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -26,8 +26,8 @@ export const LoginScreen = ({navigation}) => {
         navigation.navigate('ForgotPasswordScreen')
     }
 
-    const emailSubmit = () => {
-        passwordRef.current.focus()
+    const navigateToHome = () => {
+        navigation.navigate('HomeScreen')
     }
 
     const hanndlePassword = () => {
@@ -76,7 +76,7 @@ export const LoginScreen = ({navigation}) => {
                         <Text style={styles.textStyle}> Forgot password </Text>
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity style= {styles.buttonStyle}>
+                <TouchableOpacity style= {styles.buttonStyle} onPress= {navigateToHome}>
                     <Text style= {styles.buttonText}>Log into your account</Text>
                 </TouchableOpacity>
             </View>

@@ -11,15 +11,25 @@ import { imageAssets, fonts } from "./mock/Mockdata"
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createDrawerNavigator } from "@react-navigation/drawer"
 
-import { OnboardingScreen } from "./components/authentication/onbording/Onboarding";
-import { WelcomeScreen } from "./components/authentication/onbording/Welcome"
-import { LoginScreen } from "./components/authentication/login/LoginScreen"
-import { SignUpScreen } from "./components/authentication/signup/SignUpScreen"
-import { ForgotPasswordScreen } from "./components/authentication/forgotPassword/ForgotPasswordScreen"
-import { PasswordChangeScreen } from './components/authentication/forgotPassword/ChangePasswordScreen';
+import { OnboardingScreen } from "./src/authentication/onbording/Onboarding";
+import { WelcomeScreen } from "./src/authentication/onbording/Welcome"
+import { LoginScreen } from "./src/authentication/login/LoginScreen"
+import { SignUpScreen } from "./src/authentication/signup/SignUpScreen"
+import { ForgotPasswordScreen } from "./src/authentication/forgotPassword/ForgotPasswordScreen"
+import { PasswordChangeScreen } from './src/authentication/forgotPassword/ChangePasswordScreen';
+import { HomeScreen } from "./src/home/HomeScreen"
 
-const AuthenticationStack = createStackNavigator();
+
+
+const HomeNavigator = () => {
+  return(
+    <Drawer.Navigator>
+      <Drawer.Screen name="HomeScreen" component={HomeScreen}/>
+    </Drawer.Navigator>
+  )
+}
 
 const AuthenticationNavigator = () => {
   return (
@@ -52,6 +62,29 @@ const AuthenticationNavigator = () => {
   );
 };
 
+
+const AppStackNaviator = () => {
+
+  return(
+    <AppStack.Navigator headerMode="none">
+        <AppStack.Screen
+          name="OnBoarding"
+          component={AuthenticationNavigator}
+        />
+        <AppStack.Screen
+          name="HomeScreen"
+          component={HomeNavigator}
+        />
+    </AppStack.Navigator>
+  )
+}
+
+const AuthenticationStack = createStackNavigator();
+
+const Drawer = createDrawerNavigator();
+
+const AppStack = createStackNavigator();
+
 const loadAsset = async () => {
 
   const imageAsset = imageAssets.map((image) => {
@@ -78,7 +111,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <AuthenticationNavigator />
+        <AppStackNaviator />
         <StatusBar style="auto" />
       </NavigationContainer>
     </SafeAreaProvider>
