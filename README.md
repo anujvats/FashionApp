@@ -1,2 +1,2 @@
 # OutFitr- FashionApp
-![](Outfitr.gif)
+![](OutFitr.gif)
