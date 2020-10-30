@@ -14,6 +14,18 @@ const picture = {
 
 export const WelcomeScreen = ({navigation}) => {
 
+    const navigateToSignUp = () => {
+        navigation.navigate("SignUpScreen")
+    }
+
+    const navigateToLogin = () => {
+        navigation.navigate("LoginScreen")
+    }
+
+    const naviagteToForgotPassword = () => {
+        navigation.navigate("ForgotPasswordScreen")
+    }
+
    return(<View style= {style.container}>
        <View style = {style.firstBox}> 
        <Image source= {picture.src} style = {style.image}/>
@@ -26,15 +38,13 @@ export const WelcomeScreen = ({navigation}) => {
                 </Text>
                 <RoundButton label= "Have an account? Login" 
                                 variant= "primary" 
-                                onPress = {() => {
-                                 navigation.navigate("LoginScreen")
-                                     }}/>
-                <RoundButton label= "Join us, it’s Free" variant= "secondary"/>
+                                onPress = {navigateToLogin}/>
+                <RoundButton label= "Join us, it’s Free" 
+                             variant= "secondary"
+                             onPress = {navigateToSignUp}/>
                 <RoundButton label= "Forgot password?" 
                              variant= "transparent"
-                             onPress = {() => {
-                                navigation.navigate("ForgotPasswordScreen")
-                                    }}/> 
+                             onPress = {naviagteToForgotPassword}/> 
         </View>
        </View>
    </View>)

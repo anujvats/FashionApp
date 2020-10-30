@@ -36,7 +36,7 @@ export const SignUpScreen = ({navigation}) => {
     }
 
     const navigateToLogin = () => {
-        navigation.goBack()
+        navigation.navigate('LoginScreen')
     }
 
     const footer = (
