@@ -61,8 +61,11 @@ export const WelcomeAsset = {
   width: 3383,
 }
 
-const DesignAsset = [
-  require("../assets/pattern1.png")
+export const DesignAsset = [
+  require("../assets/pattern1.png"),
+  require("../assets/pattern2.png"),
+  require("../assets/pattern3.png"),
+  require("../assets/pattern4.png")
 ]
 
 
@@ -76,4 +79,4 @@ export const fonts = {
 
 const slideSource = slidesData.map((slide) => slide.picture.src)
 
-export const imageAssets = [ ...slideSource, WelcomeAsset.src, DesignAsset]
+export const imageAssets = [ ...slideSource, WelcomeAsset.src, ...DesignAsset]

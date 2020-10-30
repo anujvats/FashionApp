@@ -46,7 +46,7 @@ export const SignUpScreen = ({navigation}) => {
     )
 
     return(
-        <Container footer= {footer}> 
+        <Container footer= {footer} patternIndex={1}> 
             <View style= {styles.textContainer}>
                  <Text style={styles.titleStyle}>Create account</Text>
                  <Text style= {styles.subtitleStyle} > 

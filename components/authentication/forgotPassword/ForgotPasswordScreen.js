@@ -31,7 +31,7 @@ export const ForgotPasswordScreen = ({navigation}) => {
         buttonTitle2="Sign Up here" />)
 
     return(
-        <Container footer={footer}> 
+        <Container footer={footer} patternIndex={2}> 
             <View style={{justifyContent:"center", padding: 40, flex:1}}>
             <View style= {styles.textContainer}>
                  <Text style={styles.titleStyle}>Forgot password?</Text>

@@ -4,6 +4,7 @@ import {View , Image, Dimensions, StyleSheet, Text} from "react-native"
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { DesignAsset } from '../mock/Mockdata'
 
 const {width, height: wHeight } = Dimensions.get("window")
 
@@ -13,7 +14,7 @@ const height = width * imaageAspectRatio
 
 const bgpatternHeight = height * 0.61
 
-export const Container = ({footer, children}) => {
+export const Container = ({footer, children, patternIndex}) => {
     const insets = useSafeAreaInsets()
     return(
         <KeyboardAwareScrollView scrollEnabled= {false}>
@@ -21,12 +22,12 @@ export const Container = ({footer, children}) => {
             <StatusBar  style = "light" />
             <View style= {{backgroundColor:"white"}}>
                 <View style= {styles.imageContainer}>
-                    <Image source = {require("../assets/pattern1.png")} 
+                    <Image source = {DesignAsset[patternIndex]} 
                         style= { styles.imageStyle } />
                 </View>
             </View>
             <View style= {styles.reverseImageContainer}>
-                <Image  source = {require("../assets/pattern1.png")} 
+                <Image  source = {DesignAsset[patternIndex]} 
                         style= { styles.reverseImageStyle} /> 
                 <View style= {styles.mainContainer}>
                         {children}

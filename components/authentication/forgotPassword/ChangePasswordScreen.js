@@ -17,10 +17,10 @@ export const PasswordChangeScreen = ({navigation}) => {
     }
 
     const navigateToSignUp = () => {
-        navigation.navigate("SignUpScreen")
+        navigation.navigate("LoginScreen")
     }
 
-    const popToSignUp = () => {
+    const popToBack= () => {
         navigation.pop()
     }
 
@@ -35,20 +35,20 @@ export const PasswordChangeScreen = ({navigation}) => {
     (
         <View style={{justifyContent: "center", margin: 16, alignItems:"center"}}>
             <TouchableOpacity style={{height: 60, width: 60, backgroundColor: "white", borderRadius:30, justifyContent: "center", alignItems:"center"}}
-             onPress = {popToSignUp}>
+             onPress = {popToBack}>
                 <Icon name= 'x' size={32} color='black'/>
              </TouchableOpacity>
         </View>
     )
 
     return(
-        <Container footer={closeButton}> 
+        <Container footer={closeButton} patternIndex={3}> 
             <View style={{padding: 40,justifyContent:"center", alignItems: "center", flex:1}}>
                     { circleView }
             <View style= {styles.textContainer}>
                  <Text style={styles.titleStyle}>Your password was successfully changed</Text>
                  <Text style= {styles.subtitleStyle} > Close this window and login again </Text>
-                <TouchableOpacity style= {styles.buttonStyle} onPress= {popToSignUp}>
+                <TouchableOpacity style= {styles.buttonStyle} onPress= {navigateToSignUp}>
                     <Text style= {styles.buttonText}>Login Again</Text>
                 </TouchableOpacity>
             </View>
@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
     textStyle: {
         color: "#2CB9B0",
         fontFamily: "SFProdisplay-Regular",
+        textAlign: "center",
         lineHeight: 18,
         fontSize: 15,
     },

@@ -45,7 +45,7 @@ export const LoginScreen = ({navigation}) => {
   
 
     return(
-        <Container footer= {footer}> 
+        <Container footer= {footer} patternIndex={0}> 
             <View style= {styles.textContainer}>
                  <Text style={styles.titleStyle}>Welcome Back</Text>
                  <Text style= {styles.subtitleStyle} > 
